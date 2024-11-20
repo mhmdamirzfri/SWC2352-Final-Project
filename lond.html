@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>London Highlights Tour - Book Now</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Copy all the styling from the Paris page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #3C4C56;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin: 0;
+            flex: 1;
+        }
+
+        header img {
+            height: 100px;
+            margin-right: 20px;
+        }
+
+        .header-buttons button {
+            background-color: #5b6c72;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-buttons button:hover {
+            background-color: #3C4C56;
+        }
+
+        nav {
+            text-align: center;
+            background-color: #444;
+            padding: 12px 0;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 40px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            color: #3C4C56;
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Image Carousel */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .carousel-button-left {
+            left: 20px;
+        }
+
+        .carousel-button-right {
+            right: 20px;
+        }
+
+        .itinerary {
+            margin-top: 40px;
+        }
+
+        .itinerary h3 {
+            color: #3C4C56;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .itinerary-item {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+
+        .itinerary-item img {
+            width: 180px;
+            height: 120px;
+            border-radius: 8px;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+
+        .itinerary-item h4 {
+            font-size: 22px;
+            color: #3C4C56;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .itinerary-item p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .overview {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .overview h3 {
+            font-size: 28px;
+            color: #3C4C56;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .overview p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 40px;
+            margin-top: 60px;
+            font-size: 16px;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+             /* Tour Guide Section */
+                .tour-guide {
+                    text-align: center;
+                    margin-top: 60px;
+                }
+        
+                .tour-guide img {
+                    max-width: 200px;
+                    border-radius: 10px;
+                    margin-top: 20px;
+                }
+        
+                .tour-guide p {
+                    font-size: 18px;
+                    color: #555;
+                    margin-top: 20px;
+                }
+
+        .booking-section {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .booking-section h3 {
+            font-size: 28px;
+            color: #3C4C56;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .booking-section p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .booking-section button {
+            padding: 15px;
+            background-color: #3C4C56;
+            color: white;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 200px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .booking-section button:hover {
+            background-color: #5b6c72;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="dd4.png" alt="Logo">
+            <h1>Destination Dreams</h1>
+        </div>
+        <div class="header-buttons">
+            <a href="login.html"><button id="loginBtn">Login</button></a>
+            <a href="register.html"><button id="registerBtn">Register</button></a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="dm.html">Destinations</a>
+        <a href="tips.html">Travel Tips</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="content">
+        <h2>Discover the Wonders of London</h2>
+        <p>Join us for a guided tour of London’s top attractions, including Buckingham Palace, the Tower of London, the London Eye, and more.</p>
+
+        <!-- Image Carousel Section -->
+        <div class="carousel-container">
+            <button class="carousel-button carousel-button-left" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="carousel-images">
+                <img src="big-ben.jpg" alt="Big Ben">
+                <img src="tower-london.avif" alt="Tower of London">
+                <img src="london-eye.jpg" alt="London Eye">
+                <img src="buckingham-palace.avif" alt="Buckingham Palace">
+            </div>
+            <button class="carousel-button carousel-button-right" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="itinerary">
+            <h3>Tour Itinerary</h3>
+
+            <div class="itinerary-item">
+                <img src="big-ben.jpg" alt="Big Ben">
+                <div>
+                    <h4>Big Ben</h4>
+                    <p>Start your tour at London’s iconic clock tower. (30 minutes)</p>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <img src="tower-london.avif" alt="Tower of London">
+                <div>
+                    <h4>Tower of London</h4>
+                    <p>Explore the history of this famous fortress. (1 hour)</p>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <img src="london-eye.jpg" alt="London Eye">
+                <div>
+                    <h4>London Eye</h4>
+                    <p>Experience breathtaking views of the city from the giant Ferris wheel. (45 minutes)</p>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <img src="buckingham-palace.avif" alt="Buckingham Palace">
+                <div>
+                    <h4>Buckingham Palace</h4>
+                    <p>Visit the official residence of the British monarch. (1 hour)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h3>London Highlights Tour Overview</h3>
+            <p>Experience the vibrant heart of England on our London Highlights Tour. This guided tour will take you through the city's most iconic landmarks and historic sites, from the majestic Buckingham Palace to the fascinating Tower of London. Whether you’re a history enthusiast, architecture lover, or simply looking to explore, this tour offers something for everyone. Get ready to immerse yourself in the rich culture and timeless beauty of one of the world’s most famous cities.</p>
+        
+            <h4>Tour Highlights</h4>
+            <ul>
+                <li><strong>Big Ben:</strong> Admire the striking clock tower, a symbol of London’s historical and cultural legacy.</li>
+                <li><strong>Tower of London:</strong> Discover the secrets of this medieval fortress, home to the Crown Jewels and centuries of royal history.</li>
+                <li><strong>London Eye:</strong> Enjoy breathtaking panoramic views of the city from one of the world’s largest observation wheels.</li>
+                <li><strong>Buckingham Palace:</strong> Visit the iconic residence of the British monarch, and witness the Changing of the Guard ceremony (seasonal).</li>
+            </ul>
+        
+            <h4>Tour Details</h4>
+            <p><strong>Duration:</strong> 6 hours<br>
+            <strong>Start Time:</strong> 9:00 AM<br>
+            <strong>Meeting Point:</strong> Central London, near Westminster Station<br>
+            <strong>Included:</strong> Professional guide, transportation, and refreshments.</p>
+        
+            <h4>Why You'll Love This Tour</h4>
+            <p>Step into the rich history and modern marvels of London as we guide you through its top attractions. From the grandeur of royal palaces to the panoramic views atop the London Eye, this tour offers an unforgettable snapshot of a city that blends tradition with innovation. Perfect for first-time visitors and those wanting to rediscover London’s charm!</p>
+        </div>
+        
+        <!-- Tour Guide Section -->
+        <div class="tour-guide">
+            <h3>Your Expert Guide</h3>
+            <img src="guide.jpg" alt="Tour Guide">
+            <p>Meet our expert guide, who will take you through the rich history and culture of London’s landmarks. Learn fascinating stories as you explore the city!</p>
+        </div>
+
+        <div class="booking-section">
+            <h3>Book Your London Highlights Tour Now!</h3>
+            <p>Embark on an unforgettable journey through London’s iconic landmarks. Reserve your spot today and get ready for an adventure!</p>
+            <p><strong>Price per person:</strong> $95</p>
+            <button onclick="window.location.href = 'book_now.html';">Book Now</button>
+        </div>
+        
+    </div>
+
+    <footer>
+        <p>Destination Dreams &copy; 2024 | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // JavaScript for carousel functionality
+        let slideIndex = 0;
+
+        function moveSlide(step) {
+            const slides = document.querySelectorAll(".carousel-images img");
+            slideIndex = (slideIndex + step + slides.length) % slides.length;
+            document.querySelector(".carousel-images").style.transform = "translateX(" + (-100 * slideIndex) + "%)";
+        }
+    </script>
+</body>
+</html>

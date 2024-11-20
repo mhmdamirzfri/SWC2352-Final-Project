@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Tips</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            position: relative;
+            background-color: #3C4C56;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header img {
+            height: 100px;
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .header-buttons button {
+            background-color: #5b6c72; /* Button color */
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            margin-left: 10px; /* Space between buttons */
+        }
+
+        nav {
+            text-align: center;
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 40px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        #tips {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .tip-section {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 15px 0;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .tip-section h3 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        /* Comment Section Styling */
+        #comment-form {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        #comment-form label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        #comment-form input,
+        #comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background: #f9f9f9;
+        }
+
+        #comment-form button {
+            background: #3C4C56;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        #comment-form button:hover {
+            background: #555;
+        }
+
+        #comments-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #comments-list li {
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        /* User Tips Section */
+        #comment-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        #comment-section h3 {
+            margin-top: 0;
+        }
+
+        footer {
+            background: #444;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 10px;
+                font-size: 16px;
+            }
+
+            .tip-section {
+                padding: 15px;
+            }
+
+            
+        }
+    </style>
+    <script>
+        // JavaScript for Comments Section
+        document.addEventListener("DOMContentLoaded", function() {
+            // Load comments from localStorage
+            loadComments();
+
+            // Handle form submission
+            document.getElementById("comment-form").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent form from submitting
+
+                const username = document.getElementById("username").value;
+                const comment = document.getElementById("comment").value;
+
+                // Create a new list item
+                const li = document.createElement("li");
+                li.textContent = `${username}: ${comment}`;
+                
+                // Append to the comments list
+                document.getElementById("comments-list").appendChild(li);
+
+                // Save the new comment in localStorage
+                saveComment(username, comment);
+
+                // Clear the form
+                document.getElementById("comment-form").reset();
+            });
+        });
+
+        function saveComment(username, comment) {
+            // Get existing comments from localStorage (if any)
+            let comments = JSON.parse(localStorage.getItem("comments")) || [];
+
+            // Add the new comment
+            comments.push({ username, comment });
+
+            // Save the updated comments list back to localStorage
+            localStorage.setItem("comments", JSON.stringify(comments));
+        }
+
+        function loadComments() {
+            // Load comments from localStorage
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+
+            // Append each comment to the comments list
+            comments.forEach(function(comment) {
+                const li = document.createElement("li");
+                li.textContent = `${comment.username}: ${comment.comment}`;
+                document.getElementById("comments-list").appendChild(li);
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="dd4.png" alt="Logo">
+            <h1>Destination Dreams</h1>
+        </div>
+        <div class="header-buttons">
+            <a href="login.html"><button id="loginBtn">Login</button></a>
+            <a href="register.html"><button id="registerBtn">Register</button></a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="dm.html">Destinations</a>
+        <a href="tips.html">Travel Tips</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <section id="tips">
+            <h2>Essential Travel Tips</h2>
+
+            <div class="tip-section">
+                <h3>1. Safety Advice</h3>
+                <ul>
+                    <li>Stay aware of your surroundings, especially in crowded places.</li>
+                    <li>Keep your belongings secure and avoid displaying valuables.</li>
+                    <li>Always have a copy of important documents like your passport.</li>
+                    <li>Use a hotel safe for valuable items when possible.</li>
+                </ul>
+            </div>
+
+            <div class="tip-section">
+                <h3>2. Budget Travel</h3>
+                <ul>
+                    <li>Use public transport instead of taxis to save money.</li>
+                    <li>Eat where the locals eat for cheaper and more authentic meals.</li>
+                    <li>Look for free walking tours to explore the city.</li>
+                    <li>Book flights in advance and compare prices on multiple platforms.</li>
+                </ul>
+            </div>
+
+            <div class="tip-section">
+                <h3>3. Packing Tips</h3>
+                <ul>
+                    <li>Pack light to avoid extra baggage fees.</li>
+                    <li>Bring a reusable water bottle to stay hydrated and save money.</li>
+                    <li>Carry a power bank for your electronics on the go.</li>
+                    <li>Use packing cubes to maximize space and stay organized.</li>
+                </ul>
+            </div>
+
+            <div class="tip-section">
+                <h3>4. Cultural Etiquette</h3>
+                <ul>
+                    <li>Learn a few basic phrases in the local language to show respect.</li>
+                    <li>Be aware of local customs and traditions to avoid misunderstandings.</li>
+                    <li>Dress modestly when visiting religious sites.</li>
+                    <li>Always ask before taking photos of people or in restricted areas.</li>
+                </ul>
+            </div>
+
+            <div class="tip-section">
+                <h3>5. Health Tips</h3>
+                <ul>
+                    <li>Always carry hand sanitizer and disinfectant wipes.</li>
+                    <li>Get travel insurance to cover any unexpected medical emergencies.</li>
+                    <li>Stay hydrated, especially when traveling to warmer climates.</li>
+                    <li>Pack any necessary medications and a first aid kit.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="comments">
+            <h2>Share Your Tips</h2>
+            <form id="comment-form">
+                <label for="username">Name:</label>
+                <input type="text" id="username" required>
+                <label for="comment">Your Tip:</label>
+                <textarea id="comment" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+
+            <div id="comment-section">
+                <h3>User Tips:</h3>
+                <ul id="comments-list"></ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Destination Dreams . All rights reserved.</p>
+    </footer>
+</body>
+</html>

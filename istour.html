@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Istanbul Historical Treasures Tour - Book Now</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #3C4C56;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+           
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin: 0;
+            flex: 1;
+        }
+
+        header img {
+            height: 100px;
+            margin-right: 20px;
+        }
+
+        .header-buttons button {
+            background-color: #5b6c72;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-buttons button:hover {
+            background-color: #3C4C56;
+        }
+
+        /* Navigation Bar */
+        nav {
+            text-align: center;
+            background-color: #444;
+            padding: 12px 0;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 40px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        /* Main Content Area */
+        .content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            color: #3C4C56;
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Image Carousel */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .carousel-button-left {
+            left: 20px;
+        }
+
+        .carousel-button-right {
+            right: 20px;
+        }
+
+        /* Tour Itinerary */
+        .itinerary {
+            margin-top: 40px;
+        }
+
+        .itinerary h3 {
+            color: #3C4C56;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .itinerary-item {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+
+        .itinerary-item img {
+            width: 180px;
+            height: 120px;
+            border-radius: 8px;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+
+        .itinerary-item h4 {
+            font-size: 22px;
+            color: #3C4C56;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .itinerary-item p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Booking Section */
+        .booking-section {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .booking-section h3 {
+            font-size: 28px;
+            color: #3C4C56;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .booking-section p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .booking-section button {
+            padding: 15px;
+            background-color: #3C4C56;
+            color: white;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 200px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .booking-section button:hover {
+            background-color: #5b6c72;
+        }
+
+
+        /* Footer Styling */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 40px;
+            margin-top: 60px;
+            font-size: 16px;
+        }
+
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Tour Guide Section */
+        .tour-guide {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .tour-guide img {
+            max-width: 200px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .tour-guide p {
+            font-size: 18px;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        /* Contact Us Section */
+        .contact-us {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-us p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* Overview Section Styling */
+.overview {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.overview h3 {
+    font-size: 28px;
+    color: #3C4C56;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.overview p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="dd4.png" alt="Logo">
+            <h1>Destination Dreams</h1>
+        </div>
+        <div class="header-buttons">
+            <a href="login.html"><button id="loginBtn">Login</button></a>
+            <a href="register.html"><button id="registerBtn">Register</button></a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="dm.html">Destinations</a>
+        <a href="tips.html">Travel Tips</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="content">
+        <h2>Explore Istanbul's Historical Wonders</h2>
+        <p>Join our exclusive full-day tour of Istanbul’s most iconic landmarks, guided by an experienced professional. Visit the Hagia Sophia, Blue Mosque, Topkapi Palace, and the Grand Bazaar.</p>
+
+        <!-- Image Carousel Section -->
+        <div class="carousel-container">
+            <button class="carousel-button carousel-button-left" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="carousel-images">
+                <img src="hg.webp" alt="Hagia Sophia">
+                <img src="bm.jpg" alt="Blue Mosque">
+                <img src="top.webp" alt="Topkapi Palace">
+                <img src="gb.webp" alt="Grand Bazaar">
+            </div>
+            <button class="carousel-button carousel-button-right" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="itinerary">
+            <h3>Tour Itinerary</h3>
+
+            <div class="itinerary-item">
+                <img src="hg.webp" alt="Hagia Sophia">
+                <div>
+                    <h4>Hagia Sophia</h4>
+                    <p>Discover the architectural beauty and religious history of this incredible building. (2 hours)</p>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <img src="bm.jpg" alt="Blue Mosque">
+                <div>
+                    <h4>Blue Mosque</h4>
+                    <p>Explore one of the most beautiful mosques in the world. (1 hour)</p>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <img src="top.webp" alt="Topkapi Palace">
+                <div>
+                    <h4>Topkapi Palace</h4>
+                    <p>Tour the former imperial palace and learn about Ottoman history. (2 hours)</p>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <img src="gb.webp" alt="Grand Bazaar">
+                <div>
+                    <h4>Grand Bazaar</h4>
+                    <p>End the day with shopping in one of the largest and oldest covered markets. (1.5 hours)</p>
+                </div>
+            </div>
+        </div>
+
+       <!-- Overview Section -->
+        <div class="overview">
+            <h2>Istanbul Historical Treasures Tour Overview</h2>
+            <p>Embark on an unforgettable journey through Istanbul’s most cherished landmarks with our Historical Treasures Tour. From majestic mosques to vibrant bazaars, this immersive tour showcases the timeless beauty and rich history of Istanbul. Perfect for history enthusiasts and cultural explorers, you’ll experience firsthand the architectural and spiritual wonders that have shaped this iconic city.</p>
+            
+            <h4>Tour Highlights</h4>
+            <ul>
+                <li><strong>Hagia Sophia:</strong> Witness the architectural marvel that has served as both a cathedral and a mosque, with centuries of history embedded in its walls.</li>
+                <li><strong>Blue Mosque:</strong> Be captivated by the elegance of Istanbul's most famous mosque, renowned for its stunning blue tiles and intricate domes.</li>
+                <li><strong>Topkapi Palace:</strong> Explore the former residence of Ottoman sultans and immerse yourself in stories of royal life and intrigue.</li>
+                <li><strong>Grand Bazaar:</strong> Conclude your tour by wandering through one of the world’s oldest and largest markets, where treasures await at every turn.</li>
+            </ul>
+
+            <h4>Tour Details</h4>
+            <p><strong>Duration:</strong> 6 hours<br>
+            <strong>Start Time:</strong> 9:00 AM<br>
+            <strong>Meeting Point:</strong> Sultanahmet Square<br>
+            <strong>Included:</strong> Professional guide, entry fees, and refreshments.</p>
+
+            <h4>Why You'll Love This Tour</h4>
+            <p>Delve into Istanbul's past and present as you uncover the soul of the city with the guidance of a local expert. From the breathtaking beauty of the Hagia Sophia to the bustling energy of the Grand Bazaar, this tour combines history, architecture, and culture in a way that brings Istanbul's rich heritage to life. Perfect for travelers seeking an authentic, in-depth experience of Turkey’s most vibrant city.</p>
+        </div>
+
+
+
+        <!-- Tour Guide Section -->
+        <div class="tour-guide">
+            <h3>Your Expert Guide</h3>
+            <img src="guide.jpg" alt="Tour Guide">
+            <p>Meet our expert guide, who will take you through the rich history and culture of Istanbul's landmarks. Learn fascinating stories as you explore the city!</p>
+        </div>
+
+        <!-- Booking Section -->
+        <div class="booking-section">
+            <h3>Book Your Istanbul Highlights Tour</h3>
+            <p>Embark on an unforgettable journey through Istanbul. Discover its rich history, stunning architecture, and vibrant culture with our expert guides.</p>
+            <p><strong>Price:</strong> $99 per person</p>
+            <button onclick="window.location.href='book_now.html'">Book Now</button>
+        </div>
+
+
+        <!-- Contact Us Section -->
+        <div class="contact-us">
+            <h3>Contact Us</h3>
+            <p>If you have any questions or special requests, feel free to <a href="contact.html">contact us</a>.</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Destination Dreams. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function moveSlide(direction) {
+            const slides = document.querySelectorAll('.carousel-images img');
+            currentSlide += direction;
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+            document.querySelector('.carousel-images').style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+    </script>
+
+</body>
+</html>

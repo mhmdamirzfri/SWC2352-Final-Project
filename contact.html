@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Destination Dreams</title>
+    
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styling */
+        header {
+            position: relative;
+            background-color: #3C4C56;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header img {
+            height: 100px;
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin: 0;
+            padding-left: 20px;
+            color: white; /* Make Destination Dreams text white */
+        }
+
+        .header-buttons button {
+            background-color: #5b6c72; /* Button color */
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            margin-left: 10px; /* Space between buttons */
+        }
+
+        nav {
+            text-align: center;
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 40px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Contact Form Styling */
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #000000; /* Make Contact Us text black */
+            font-size: 36px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #3C4C56;
+        }
+
+        input, textarea {
+            font-size: 16px;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #3C4C56;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #5b6c72;
+        }
+
+        .social-media {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-media a {
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 24px;
+            color: #3C4C56;
+            transition: color 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #5b6c72;
+        }
+
+        .success-message, .error-message {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .success-message {
+            color: green;
+        }
+
+        .error-message {
+            color: red;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="dd4.png" alt="Logo">
+            <h1>Destination Dreams</h1>
+        </div>
+        <div class="header-buttons">
+            <a href="login.html"><button id="loginBtn">Login</button></a>
+            <a href="register.html"><button id="registerBtn">Register</button></a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="dm.html">Destinations</a>
+        <a href="tips.html">Travel Tips</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Contact Form Section -->
+    <div class="container">
+        <h1>Contact Us</h1>
+        <form action="save-contact.php" method="POST">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <input type="submit" value="Send Message">
+        </form>
+
+        <!-- Social Media Icons -->
+        <div class="social-media">
+            <a href="https://facebook.com" target="_blank">
+                <img src="fb.png" alt="Facebook" width="30" height="30">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="ig.png" alt="Instagram" width="30" height="30">
+            </a>
+            <a href="https://twitter.com" target="_blank">
+                <img src="x.png" alt="Twitter" width="30" height="30">
+            </a>
+        </div>
+        
+
+    <!-- Font Awesome CDN for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</body>
+</html>

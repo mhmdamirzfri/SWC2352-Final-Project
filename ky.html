@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyoto Highlights Tour - Book Now</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Copy all the styling here from the Reykjavik page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #3C4C56;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+           
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin: 0;
+            flex: 1;
+        }
+
+        header img {
+            height: 100px;
+            margin-right: 20px;
+        }
+
+        .header-buttons button {
+            background-color: #5b6c72;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-buttons button:hover {
+            background-color: #3C4C56;
+        }
+
+        /* Navigation Bar */
+        nav {
+            text-align: center;
+            background-color: #444;
+            padding: 12px 0;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 40px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        /* Main Content Area */
+        .content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            color: #3C4C56;
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Image Carousel */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .carousel-button-left {
+            left: 20px;
+        }
+
+        .carousel-button-right {
+            right: 20px;
+        }
+
+        /* Tour Itinerary */
+        .itinerary {
+            margin-top: 40px;
+        }
+
+        .itinerary h3 {
+            color: #3C4C56;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .itinerary-item {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+
+        .itinerary-item img {
+            width: 180px;
+            height: 120px;
+            border-radius: 8px;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+
+        .itinerary-item h4 {
+            font-size: 22px;
+            color: #3C4C56;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .itinerary-item p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Booking Section */
+        .booking-section {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .booking-section h3 {
+            font-size: 28px;
+            color: #3C4C56;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .booking-section p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .booking-section button {
+            padding: 15px;
+            background-color: #3C4C56;
+            color: white;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 200px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .booking-section button:hover {
+            background-color: #5b6c72;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 40px;
+            margin-top: 60px;
+            font-size: 16px;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Tour Guide Section */
+        .tour-guide {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .tour-guide img {
+            max-width: 200px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .tour-guide p {
+            font-size: 18px;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        /* Contact Us Section */
+        .contact-us {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-us p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* Overview Section Styling */
+.overview {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.overview h3 {
+    font-size: 28px;
+    color: #3C4C56;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.overview p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="dd4.png" alt="Logo">
+            <h1>Destination Dreams</h1>
+        </div>
+        <div class="header-buttons">
+            <button id="loginBtn">Login</button>
+            <button id="registerBtn">Register</button>
+        </div>
+    </header>
+
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="dm.html">Destinations</a>
+        <a href="tips.html">Travel Tips</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="content">
+        <h2>Explore Kyoto's Highlights</h2>
+        <p>Immerse yourself in the serene beauty and ancient wonders of Kyoto on this highlights tour. Discover iconic temples, historic districts, and breathtaking landscapes.</p>
+
+        <!-- Image Carousel Section -->
+        <div class="carousel-container">
+            <button class="carousel-button carousel-button-left" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="carousel-images">
+                <img src="kinkakuji.webp" alt="Kinkaku-ji Temple">
+                <img src="fushimi_inari.jpg" alt="Fushimi Inari Shrine">
+                <img src="Arashiyama.jpg" alt="Arashiyama Bamboo Grove">
+                <img src="kyo_district.jpg" alt="Gion District">
+            </div>
+            <button class="carousel-button carousel-button-right" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="itinerary">
+            <h3>Tour Itinerary</h3>
+
+            <div class="itinerary-item">
+                <img src="kinkakuji.webp" alt="Kinkaku-ji Temple">
+                <div>
+                    <h4>Kinkaku-ji (Golden Pavilion)</h4>
+                    <p>Marvel at this gold-leaf-covered Zen temple and its beautiful surrounding gardens. (1 hour)</p>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <img src="fushimi_inari.jpg" alt="Fushimi Inari Shrine">
+                <div>
+                    <h4>Fushimi Inari Shrine</h4>
+                    <p>Walk through thousands of iconic red torii gates at Kyoto’s most famous Shinto shrine. (1.5 hours)</p>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <img src="arashiyama.jpg" alt="Arashiyama Bamboo Grove">
+                <div>
+                    <h4>Arashiyama Bamboo Grove</h4>
+                    <p>Experience the magical bamboo forest and surrounding area, a must-see in Kyoto. (1 hour)</p>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <img src="kyo_district.jpg" alt="Gion District">
+                <div>
+                    <h4>Gion District</h4>
+                    <p>Stroll through Kyoto’s historic geisha district, filled with traditional tea houses and shops. (1 hour)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overview Section -->
+        <div class="overview">
+            <h3>Kyoto Highlights Tour Overview</h3>
+            <p>Uncover Kyoto’s hidden gems and historical sites on our Kyoto Highlights Tour. From stunning temples to enchanting landscapes, experience the essence of Japan’s ancient capital in just a day.</p>
+            
+            <h4>Tour Highlights</h4>
+            <ul>
+                <li><strong>Kinkaku-ji:</strong> Admire this golden temple, a UNESCO World Heritage Site.</li>
+                <li><strong>Fushimi Inari Shrine:</strong> Walk through the endless path of red torii gates.</li>
+                <li><strong>Arashiyama Bamboo Grove:</strong> Wander through one of Kyoto’s most famous natural spots.</li>
+                <li><strong>Gion District:</strong> Visit the heart of traditional Kyoto, filled with history and charm.</li>
+            </ul>
+
+            <h4>Tour Details</h4>
+            <p><strong>Duration:</strong> 6 hours<br>
+            <strong>Start Time:</strong> 9:00 AM<br>
+            <strong>Meeting Point:</strong> Kyoto City Center<br>
+            <strong>Included:</strong> Professional guide, comfortable transportation, and refreshments.</p>
+        </div>
+
+        <!-- Tour Guide Section -->
+        <div class="tour-guide">
+            <h3>Your Expert Guide</h3>
+            <img src="guide.jpg" alt="Tour Guide">
+            <p>Meet our knowledgeable guide, who will provide insights into Kyoto’s history, culture, and hidden gems.</p>
+        </div>
+
+        <!-- Booking Form Section -->
+        <div class="booking-section">
+            <h3>Book Your Kyoto Highlights Tour</h3>
+            <p>Explore the beautiful temples, gardens, and traditional culture of Kyoto in our guided highlights tour.</p>
+            <p><strong>Price:</strong> $140 per person</p>
+            <button onclick="window.location.href='book_now.html'">Book Now</button>
+        </div>
+
+        <!-- Contact Us Section -->
+        <div class="contact-us">
+            <h3>Contact Us</h3>
+            <p>If you have any questions or special requests, feel free to <a href="contact.html">contact us</a>.</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Destination Dreams. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function moveSlide(direction) {
+            const slides = document.querySelectorAll('.carousel-images img');
+            currentSlide += direction;
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+            document.querySelector('.carousel-images').style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+    </script>
+
+</body>
+</html>
